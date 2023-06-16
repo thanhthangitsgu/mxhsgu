@@ -109,13 +109,26 @@
         height: 100%;
         object-fit: contain;
       }
+      @media screen and (max-width: 720px) {
+        .notification{
+            flex-direction: column;
+            font-size: 1rem;
+        }
+        .name{
+            font-size: 1.5rem;
+        }
+        .img-typo{
+            width: 8rem;
+            height: 8rem;
+        }
+      }
     </style>
   </head>
   <body>
     <audio id="audio">
       <source src="/img/cg.m4a" type="audio/ogg" id="mp" />
     </audio>
-    <div id="content" class="d-none">
+    <div id="content" class="">
       <div class="logo">
         <div class="img-mxh">
           <img src="/img/dtn.png" alt="" />
@@ -262,7 +275,7 @@
           });
       });
 
-      $("#modal").modal("show");
+    //   $("#modal").modal("show");
     </script>
   </body>
 </html>
