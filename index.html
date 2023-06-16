@@ -6,6 +6,7 @@
     <title>THÔNG BÁO MÙA HÈ XANH</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/x-icon" href="/img/MHX.png">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -64,10 +65,10 @@
         height: 50%;
         border-radius: 1rem;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        background-color: #00aa5d;
+        background: linear-gradient(to right, #11998e, #38ef7d);
         text-align: center;
         color: white;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -80,6 +81,7 @@
         font-size: 3rem;
       }
       .logo {
+        margin-top: 0.5rem;
         position: absolute;
         display: flex;
         gap: 0 0.5rem;
@@ -98,23 +100,43 @@
         height: 100%;
         object-fit: contain;
       }
+      .img-typo{
+        width: 20rem;
+        height: 20rem;
+      }
+      .img-typo img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
     </style>
   </head>
   <body>
     <audio id="audio">
       <source src="/img/cg.m4a" type="audio/ogg" id="mp" />
     </audio>
-    <div id="content" class="d-none">
+    <div id="content" class="">
       <div class="logo">
         <div class="img-mxh">
-          <img src="/img/MHX.png" alt="" />
+          <img src="/img/dtn.png" alt="" />
         </div>
         <div class="img-mxh">
           <img src="/img/DHSG.png" alt="" />
         </div>
+        <div class="img-mxh">
+          <img src="/img/hsv.png" alt="" />
+        </div>
+        <div class="img-mxh">
+          <img src="/img/MHX.png" alt="" />
+        </div>
       </div>
       <canvas id="my-canvas"></canvas>
       <div class="notification">
+        <div class="typo">
+          <div class="img-typo">
+            <img src="img/typo.png" alt="" />
+          </div>
+        </div>
         <div class="main">
           <p class="top">Chúc mừng bạn</p>
           <p class="name" id="name">Phan Thanh Thắng</p>
@@ -240,7 +262,7 @@
           });
       });
 
-      $("#modal").modal("show");
+      //   $("#modal").modal("show");
     </script>
   </body>
 </html>
