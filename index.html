@@ -65,16 +65,22 @@
         height: 50%;
         border-radius: 1rem;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        background: linear-gradient(to right, #11998e, #38ef7d);
         text-align: center;
         color: white;
         font-size: 1.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+      }
+      .notification p {
+        background: linear-gradient(to left, #11998e, #38ef7d);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
       .top {
-        font-weight: 600;
+        font-weight: 800;
+        font-size: 1.8rem;
       }
       .name {
         font-weight: 900;
@@ -88,8 +94,10 @@
         top: 0;
       }
       .text {
-        padding: 1rem;
         font-weight: 600;
+      }
+      .title{
+        font-weight: 800;
       }
       .img-mxh {
         width: 5rem;
@@ -101,25 +109,49 @@
         object-fit: contain;
       }
       .img-typo {
-        width: 20rem;
-        height: 20rem;
+        width: 25rem;
+        height: 25rem;
       }
       .img-typo img {
         width: 100%;
         height: 100%;
         object-fit: contain;
       }
+      .background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1000;
+      }
+      .background img {
+        width: 100%;
+        height: 100%;
+      }
       @media screen and (max-width: 720px) {
-        .notification{
-            flex-direction: column;
-            font-size: 1rem;
+        .notification {
+          flex-direction: column;
+          font-size: 1rem;
         }
-        .name{
+        .name {
+          font-size: 1.5rem;
+        }
+        .img-typo {
+          width: 12rem;
+          height: 12rem;
+          transform: translateY(-2rem);
+        }
+        .top{
             font-size: 1.5rem;
         }
-        .img-typo{
-            width: 8rem;
-            height: 8rem;
+        .main{
+            transform: translateY(-3rem);
+        }
+        .img-mxh {
+          width: 3rem;
+          height: 3rem;
+        }
+        .name{
+            margin-bottom: 0.5rem;
         }
       }
     </style>
@@ -128,7 +160,7 @@
     <audio id="audio">
       <source src="/img/cg.m4a" type="audio/ogg" id="mp" />
     </audio>
-    <div id="content" class="d-none">
+    <div id="content" class="">
       <div class="logo">
         <div class="img-mxh">
           <img src="/img/dtn.png" alt="" />
@@ -153,10 +185,12 @@
         <div class="main">
           <p class="top">Chúc mừng bạn</p>
           <p class="name" id="name">Phan Thanh Thắng</p>
-          <p class="text">
-            Đã trở thành chiến sĩ tình nguyện MÙA HÈ XANH <br />trường Đại học
-            Sài Gòn lần thứ 30 - năm 2023
-          </p>
+          <p class="text">Đã trở thành chiến sĩ tình nguyện</p>
+          <p class="text title">MÙA HÈ XANH</p>
+          <p class="text">trường Đại học Sài Gòn <br> lần thứ 30 - năm 2023</p>
+        </div>
+        <div class="background">
+          <img src="/img/background.png" alt="" />
         </div>
       </div>
     </div>
@@ -224,58 +258,27 @@
       var confetti = new ConfettiGenerator(confettiSettings);
       confetti.render();
 
-      $("#btn").on("click", () => {
-        fetch(
-          "https://sheet.best/api/sheets/7b4179af-e5b5-4c22-be3f-838d98228b04"
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            const length = data.length;
-            const text = $("#mssv").val();
-            fetch(
-              "https://sheet.best/api/sheets/7b4179af-e5b5-4c22-be3f-838d98228b04",
-              {
-                method: "POST",
-                mode: "cors",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  mssv: text,
-                  name1: `= INDEX(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Q70XtFk9wYnoHBX-gfvi1EBLT-vfFe-85Uu3Rlo5oBQ/edit#gid=0";"data!C3:I21000");MATCH($A${
-                    length + 2
-                  };IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Q70XtFk9wYnoHBX-gfvi1EBLT-vfFe-85Uu3Rlo5oBQ/edit#gid=0";"data!C3:C21000");0);2)`,
-                  name2: `= INDEX(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Q70XtFk9wYnoHBX-gfvi1EBLT-vfFe-85Uu3Rlo5oBQ/edit#gid=0";"data!C3:I21000");MATCH($A${
-                    length + 2
-                  };IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Q70XtFk9wYnoHBX-gfvi1EBLT-vfFe-85Uu3Rlo5oBQ/edit#gid=0";"data!C3:C21000");0);3)`,
-                }),
-              }
-            )
-              .then((r) => r.json())
-              .then((data) => {
-                setTimeout(() => {
-                  fetch(
-                    "https://sheet.best/api/sheets/7b4179af-e5b5-4c22-be3f-838d98228b04"
-                  )
-                    .then((response) => response.json())
-                    .then((res) => {
-                      console.log(res);
-                      $("#modal").modal("hide");
-                      $("#content").removeClass("d-none");
-                      $("#name").text(
-                        res[res.length - 1].name1 +
-                          " " +
-                          res[res.length - 1].name2
-                      );
-                      const el = document.getElementById("audio");
-                      el.play();
-                    });
-                }, 1000);
-              });
-          });
-      });
+      fetch(
+        "https://sheet.best/api/sheets/9535e108-563b-42e4-93d5-28a4be0322b6"
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          //   $("#modal").modal("show");
 
-      $("#modal").modal("show");
+          $("#btn").on("click", () => {
+            const text = $("#mssv").val();
+            const sv = data.filter((item) => item.mssv === text)[0];
+            if (!sv) {
+              alert("Mã số sinh viên không hợp lệ");
+            } else {
+              $("#modal").modal("hide");
+              $("#content").removeClass("d-none");
+              $("#name").text(`${sv.holot} ${sv.ten}`);
+              const el = document.getElementById("audio");
+              el.play();
+            }
+          });
+        });
     </script>
   </body>
 </html>
