@@ -75,7 +75,7 @@
         overflow: hidden;
       }
       .notification p {
-        background: linear-gradient(to left, #11998e, #38ef7d);
+        background: linear-gradient(to left, #109645, #2fa243);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -112,7 +112,6 @@
       .img-typo {
         width: 28rem;
         height: 28rem;
-     
       }
       .img-typo img {
         width: 100%;
@@ -129,10 +128,10 @@
         width: 100%;
         height: 100%;
       }
-      .typo{
+      .typo {
         width: 40%;
       }
-      .main{
+      .main {
         width: 60%;
       }
       @media screen and (max-width: 720px) {
@@ -163,12 +162,12 @@
           width: 3rem;
           height: 3rem;
         }
-       
-        .typo{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .typo {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     </style>
@@ -177,7 +176,7 @@
     <audio id="audio">
       <source src="/img/cg.m4a" type="audio/ogg" id="mp" />
     </audio>
-    <div id="content" class="">
+    <div id="content" class="d-none">
       <div class="logo">
         <div class="img-mxh">
           <img src="/img/dtn.png" alt="" />
@@ -284,7 +283,7 @@
       )
         .then((res) => res.json())
         .then((data) => {
-          //   $("#modal").modal("show");
+          $("#modal").modal("show");
 
           $("#btn").on("click", () => {
             const text = $("#mssv").val();
