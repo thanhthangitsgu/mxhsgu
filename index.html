@@ -288,8 +288,9 @@
           $("#btn").on("click", () => {
             const text = $("#mssv").val();
             const sv = data.filter((item) => item.mssv === text)[0];
-            if (!sv || sv.pass === 'FALSE') {
+            if (!sv || sv.pass === "FALSE") {
               alert("Mã số sinh viên không hợp lệ/Chưa có kết quả phỏng vấn");
+              window.location.reload();
             } else {
               $("#modal").modal("hide");
               $("#content").removeClass("d-none");
