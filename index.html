@@ -279,7 +279,7 @@
       confetti.render();
 
       fetch(
-        "https://sheet.best/api/sheets/9535e108-563b-42e4-93d5-28a4be0322b6"
+        "https://sheet.best/api/sheets/1c30b72c-3d72-419f-8c48-941775fd4ab5"
       )
         .then((res) => res.json())
         .then((data) => {
@@ -288,8 +288,8 @@
           $("#btn").on("click", () => {
             const text = $("#mssv").val();
             const sv = data.filter((item) => item.mssv === text)[0];
-            if (!sv) {
-              alert("Mã số sinh viên không hợp lệ");
+            if (!sv || sv.pass === 'FALSE') {
+              alert("Mã số sinh viên không hợp lệ/Chưa có kết quả phỏng vấn");
             } else {
               $("#modal").modal("hide");
               $("#content").removeClass("d-none");
