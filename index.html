@@ -134,7 +134,7 @@
       .main {
         width: 60%;
       }
-      .button{
+      .button {
         width: 100%;
         display: flex;
         align-items: center;
@@ -206,11 +206,11 @@
           </div>
         </div>
         <div class="main">
-          <p class="top">Chúc mừng bạn</p>
+          <p class="top" id="top">Chúc mừng bạn</p>
           <p class="name" id="name">Phan Thanh Thắng</p>
-          <p class="text">Đã trở thành chiến sĩ tình nguyện</p>
+          <p class="text" id="text">Đã trở thành chiến sĩ tình nguyện</p>
 
-          <p class="text">
+          <p class="text" id="w">
             <span class="text title">MÙA HÈ XANH </span>trường Đại học Sài Gòn
             <br />
             lần thứ 30 - năm 2023
@@ -280,7 +280,9 @@
             } else if (sv.pass === "FALSE") {
               $("#modal").modal("hide");
               $("#content").removeClass("d-none");
-              // $("#name").text(`${sv.holot} ${sv.ten}`);
+              $("#top").html("");
+              $("#w").html("");
+              $("#name").text(``);
               $("#text").html(
                 ` “Chúng mình rất tiếc vì không được đồng hành cùng bạn trong Chiến dịch tình nguyện Mùa Hè Xanh trường Đại học Sài Gòn lần thứ 30 - 2023. Hẹn gặp lại bạn vào các hoạt động tiếp theo nhé!”`
               );
