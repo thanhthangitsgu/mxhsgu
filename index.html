@@ -246,9 +246,11 @@
             />
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-success" id="btn">
-              Tra cứu
-            </button>
+            <a href="https://dangky.tinhnguyenhetphcm.vn/.">
+              <button type="button" class="btn btn-success" id="btn">
+                Tra cứu
+              </button></a
+            >
           </div>
         </div>
       </div>
@@ -268,7 +270,7 @@
             if (!sv) {
               alert("Mã số sinh viên không hợp lệ/Chưa có kết quả phỏng vấn");
               window.location.reload();
-            } else if (v.pass === "FALSE") {
+            } else if (sv.pass === "FALSE") {
               $("#modal").modal("hide");
               $("#content").removeClass("d-none");
               // $("#name").text(`${sv.holot} ${sv.ten}`);
