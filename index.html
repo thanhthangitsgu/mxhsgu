@@ -210,7 +210,9 @@
           </p>
         </div>
         <div class="button">
-          <div class="btn btn-success">Xem thông tin chiến dịch Mùa Hè Xanh</div>
+          <div class="btn btn-success">
+            Xem thông tin chiến dịch Mùa Hè Xanh
+          </div>
         </div>
         <div class="background">
           <img src="/img/background.png" alt="" />
@@ -244,7 +246,9 @@
             />
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-success" id="btn">Tra cứu</button>
+            <button type="button" class="btn btn-success" id="btn">
+              Tra cứu
+            </button>
           </div>
         </div>
       </div>
@@ -261,9 +265,14 @@
           $("#btn").on("click", () => {
             const text = $("#mssv").val();
             const sv = data.filter((item) => item.mssv === text)[0];
-            if (!sv || sv.pass === "FALSE") {
+            if (!sv) {
               alert("Mã số sinh viên không hợp lệ/Chưa có kết quả phỏng vấn");
               window.location.reload();
+            } else if (v.pass === "FALSE") {
+              $("#modal").modal("hide");
+              $("#content").removeClass("d-none");
+              $("#name").text(`${sv.holot} ${sv.ten}`);
+              $("#text").text(`Rất tiếc`);
             } else {
               $("#modal").modal("hide");
               $("#content").removeClass("d-none");
