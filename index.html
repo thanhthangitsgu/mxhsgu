@@ -209,6 +209,9 @@
             lần thứ 30 - năm 2023
           </p>
         </div>
+        <div class="button">
+          <div class="btn btn-success">Xem thông tin chiến dịch Mùa Hè Xanh</div>
+        </div>
         <div class="background">
           <img src="/img/background.png" alt="" />
         </div>
@@ -241,35 +244,13 @@
             />
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-success" id="btn">Ok</button>
+            <button type="button" class="btn btn-success" id="btn">Tra cứu</button>
           </div>
         </div>
       </div>
     </div>
 
     <script>
-      var confettiSettings = {
-        target: "my-canvas",
-        max: "200",
-        size: "1",
-        animate: true,
-        props: ["circle", "square", "triangle", "line"],
-        colors: [
-          [165, 104, 246],
-          [230, 61, 135],
-          [0, 199, 228],
-          [253, 214, 126],
-        ],
-        clock: "25",
-        rotate: false,
-        width: "1280",
-        height: "616",
-        start_from_edge: false,
-        respawn: true,
-      };
-      var confetti = new ConfettiGenerator(confettiSettings);
-      confetti.render();
-
       fetch(
         "https://sheet.best/api/sheets/1c30b72c-3d72-419f-8c48-941775fd4ab5"
       )
