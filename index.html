@@ -271,8 +271,10 @@
             } else if (v.pass === "FALSE") {
               $("#modal").modal("hide");
               $("#content").removeClass("d-none");
-              $("#name").text(`${sv.holot} ${sv.ten}`);
-              $("#text").text(`Rất tiếc`);
+              // $("#name").text(`${sv.holot} ${sv.ten}`);
+              $("#text").html(
+                ` “Chúng mình rất tiếc vì không được đồng hành cùng bạn trong Chiến dịch tình nguyện Mùa Hè Xanh trường Đại học Sài Gòn lần thứ 30 - 2023. Hẹn gặp lại bạn vào các hoạt động tiếp theo nhé!”`
+              );
             } else {
               $("#modal").modal("hide");
               $("#content").removeClass("d-none");
